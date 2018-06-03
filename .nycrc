@@ -1,0 +1,25 @@
+{
+  "extension": [".js",".jsx"],
+  "require": ["./tests/helper.js"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "coverage",
+    "tests",
+    "src/registerServiceWorker.js",
+    "src/*.*"
+  ],
+  "check-coverage": true,
+  "per-file": false,
+  "statements": 80,
+  "branches": 80,
+  "functions": 80,
+  "lines": 80,
+  "reporter": [
+    "lcov",
+    "text",
+    "text-summary",
+    "html"
+  ],
+  "all": true
+}
