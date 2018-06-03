@@ -61,7 +61,7 @@ describe('Testing post module PostComponent', () => {
     expect(titleProps.onChange).to.be.a('function');
 
     wrapper.find('input').first().simulate('change', { target: { value: 'test' } });
-    expect(onChange.withArgs('test').calledOnce).to.be.equal(true);
+    expect(onChange.withArgs({ title: 'test' }).calledOnce).to.be.equal(true);
   });
 
   it('should test PostComponent bodyAction', () => {
@@ -76,7 +76,7 @@ describe('Testing post module PostComponent', () => {
     expect(bodyProps.onChange).to.be.a('function');
 
     wrapper.find('textarea').simulate('change', { target: { value: 'test' } });
-    expect(onChange.withArgs('test').calledOnce).to.be.equal(true);
+    expect(onChange.withArgs({ body: 'test' }).calledOnce).to.be.equal(true);
   });
 
   it('should test PostComponent submitAction', () => {

@@ -5,7 +5,9 @@ import { spy } from 'sinon';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
-import PostContainer from '../../../../src/modules/post/containers';
+import rl from '../../../../src/modules/post/rl';
+
+const { nameSpace, Container: PostContainer } = rl;
 
 describe('Testing post module containers', () => {
   it('should test container', () => {
@@ -17,7 +19,7 @@ describe('Testing post module containers', () => {
 
     const mockStore = configureMockStore([]);
     const store = mockStore({
-      post: {
+      [nameSpace]: {
         title,
         body,
       },

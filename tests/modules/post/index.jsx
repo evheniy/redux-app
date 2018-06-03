@@ -7,6 +7,10 @@ import { Provider } from 'react-redux';
 import PostModule from '../../../src/modules/post';
 import PostComponent from '../../../src/modules/post/components';
 
+import rl from '../../../src/modules/post/rl';
+
+const { nameSpace } = rl;
+
 describe('Testing post module', () => {
   it('should test post module', () => {
     const title = 'title';
@@ -14,7 +18,7 @@ describe('Testing post module', () => {
 
     const mockStore = configureMockStore([]);
     const store = mockStore({
-      post: {
+      [nameSpace]: {
         title,
         body,
       },

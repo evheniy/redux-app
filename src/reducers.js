@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
-import post from './modules/post/reducer';
+import rl from './modules/post/rl';
 
-export default combineReducers({ post });
+const { nameSpace: postNameSpace, reducer: postReducer } = rl;
+
+export default combineReducers({ [postNameSpace]: postReducer });

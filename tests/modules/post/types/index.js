@@ -1,5 +1,7 @@
 import { expect } from 'chai';
-import * as types from '../../../../src/modules/post/types';
+import rl from '../../../../src/modules/post/rl';
+
+const { types } = rl;
 
 describe('Testing post module types', () => {
   it('should test POST_TITLE', () => {

@@ -12,13 +12,13 @@ const PostComponent = props => (
     <div>
       <input
         type="text"
-        onChange={event => props.titleAction(event.target.value)}
+        onChange={event => props.titleAction({ title: event.target.value })}
         value={props.title}
       />
     </div>
     <div>
       <textarea
-        onChange={event => props.bodyAction(event.target.value)}
+        onChange={event => props.bodyAction({ body: event.target.value })}
         value={props.body}
       />
     </div>
