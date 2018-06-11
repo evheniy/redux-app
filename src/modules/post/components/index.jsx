@@ -2,23 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PostComponent = props => (
-  <form
-    onSubmit={(event) => {
-      event.preventDefault();
-      props.submitAction();
-    }}
-  >
+  <form onSubmit={props.submitAction}>
     <h1>Our form example</h1>
     <div>
       <input
         type="text"
-        onChange={event => props.titleAction({ title: event.target.value })}
+        onChange={props.titleAction}
         value={props.title}
       />
     </div>
     <div>
       <textarea
-        onChange={event => props.bodyAction({ body: event.target.value })}
+        onChange={props.bodyAction}
         value={props.body}
       />
     </div>

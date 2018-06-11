@@ -60,8 +60,8 @@ describe('Testing post module PostComponent', () => {
     expect(titleProps.value).to.be.equal(title);
     expect(titleProps.onChange).to.be.a('function');
 
-    wrapper.find('input').first().simulate('change', { target: { value: 'test' } });
-    expect(onChange.withArgs({ title: 'test' }).calledOnce).to.be.equal(true);
+    wrapper.find('input').first().simulate('change', 'test');
+    expect(onChange.withArgs('test').calledOnce).to.be.equal(true);
   });
 
   it('should test PostComponent bodyAction', () => {
@@ -75,20 +75,18 @@ describe('Testing post module PostComponent', () => {
     expect(bodyProps.value).to.be.equal(body);
     expect(bodyProps.onChange).to.be.a('function');
 
-    wrapper.find('textarea').simulate('change', { target: { value: 'test' } });
-    expect(onChange.withArgs({ body: 'test' }).calledOnce).to.be.equal(true);
+    wrapper.find('textarea').simulate('change', 'test');
+    expect(onChange.withArgs('test').calledOnce).to.be.equal(true);
   });
 
   it('should test PostComponent submitAction', () => {
     const onChange = spy();
-    const preventDefault = spy();
 
     const wrapper = shallow(<PostComponent {...props} submitAction={onChange} />);
 
     expect(wrapper.find('form')).to.have.length(1);
 
-    wrapper.find('form').simulate('submit', { preventDefault });
+    wrapper.find('form').simulate('submit');
     expect(onChange.calledOnce).to.be.equal(true);
-    expect(preventDefault.calledOnce).to.be.equal(true);
   });
 });
