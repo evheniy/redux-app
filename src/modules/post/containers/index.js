@@ -1,19 +1,18 @@
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 
 import post, { nameSpace } from '../rl';
 
-const postTitleSelector = state => ({
+const postSelector = state => ({
   title: state[nameSpace].title,
-});
-const postBodySelector = state => ({
   body: state[nameSpace].body,
+  titleLength: state[nameSpace].title.length,
+  bodyLength: state[nameSpace].body.length,
 });
 
 const mapStateToProps = createSelector(
-  postTitleSelector,
-  postBodySelector,
-  (titleObject, bodyObject) => ({ ...titleObject, ...bodyObject }),
+  postSelector,
+  newPost => newPost,
 );
 const mapDispatchToProps = { ...post.actions };
 

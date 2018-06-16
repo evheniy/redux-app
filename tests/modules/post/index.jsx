@@ -13,6 +13,8 @@ describe('Testing post module', () => {
   it('should test post module', () => {
     const title = 'title';
     const body = 'body';
+    const titleLength = title.length;
+    const bodyLength = body.length;
     const error = null;
 
     const mockStore = configureMockStore([]);
@@ -20,6 +22,8 @@ describe('Testing post module', () => {
       [nameSpace]: {
         title,
         body,
+        titleLength,
+        bodyLength,
         error,
       },
     });

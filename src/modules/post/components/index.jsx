@@ -10,12 +10,14 @@ const PostComponent = props => (
         onChange={props.titleAction}
         value={props.title}
       />
+      {props.titleLength}
     </div>
     <div>
       <textarea
         onChange={props.bodyAction}
         value={props.body}
       />
+      {props.bodyLength}
     </div>
     <div>
       <input type="submit" value="Submit" />
@@ -35,6 +37,8 @@ PostComponent.propTypes = {
   titleAction: PropTypes.func.isRequired,
   bodyAction: PropTypes.func.isRequired,
   submitAction: PropTypes.func.isRequired,
+  titleLength: PropTypes.number.isRequired,
+  bodyLength: PropTypes.number.isRequired,
 };
 
 PostComponent.defaultProps = {

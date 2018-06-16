@@ -16,6 +16,8 @@ describe('Testing post module containers', () => {
 
     const title = 'title';
     const body = 'body';
+    const titleLength = title.length;
+    const bodyLength = body.length;
     const error = null;
 
     const mockStore = configureMockStore([]);
@@ -24,6 +26,8 @@ describe('Testing post module containers', () => {
         title,
         body,
         error,
+        titleLength,
+        bodyLength,
       },
     });
 

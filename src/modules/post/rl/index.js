@@ -6,7 +6,7 @@ rl.addAction('title', { title: '' }, { isFormElement: true, asParams: 'title' })
 rl.addAction('body', { body: '' }, { isFormElement: true, asParams: 'body' });
 rl.addAction('submit', {}, { isForm: true });
 rl.addAction('load');
-rl.addAction('loaded', { title: '', body: '' }, { asParams: ['title', 'body'] });
+rl.addAction('loaded');
 rl.addAction('error', { error: null }, { asParams: 'error' });
 
 const result = rl.flush();

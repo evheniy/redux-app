@@ -8,6 +8,8 @@ import PostComponent from '../../../../src/modules/post/components';
 describe('Testing post module PostComponent', () => {
   const title = 'title';
   const body = 'body';
+  const titleLength = title.length;
+  const bodyLength = body.length;
   const titleAction = () => 1;
   const bodyAction = () => 1;
   const submitAction = () => 1;
@@ -15,6 +17,8 @@ describe('Testing post module PostComponent', () => {
   const props = {
     title,
     body,
+    titleLength,
+    bodyLength,
     titleAction,
     bodyAction,
     submitAction,
@@ -46,6 +50,16 @@ describe('Testing post module PostComponent', () => {
     const submitProps = wrapper.find('input').last().props();
     expect(submitProps.type).to.be.equal('submit');
     expect(submitProps.value).to.be.equal('Submit');
+  });
+
+  it('should test PostComponent with error', () => {
+    const message = 'error';
+    const error = { message };
+
+    const wrapper = shallow(<PostComponent {...props} error={error} />);
+
+    expect(wrapper.find('div')).to.have.length(4);
+    expect(wrapper.find('div').at(3).props().children).to.be.equal(message);
   });
 
   it('should test PostComponent titleAction', () => {

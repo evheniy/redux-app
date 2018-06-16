@@ -7,6 +7,7 @@ require('babel-register')({
     'transform-object-rest-spread',
   ],
 });
+require('rxjs');
 const { configure } = require('enzyme');
 const Adapter = require('enzyme-adapter-react-16');
 
