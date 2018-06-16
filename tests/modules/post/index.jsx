@@ -7,20 +7,20 @@ import { Provider } from 'react-redux';
 import PostModule from '../../../src/modules/post';
 import PostComponent from '../../../src/modules/post/components';
 
-import rl from '../../../src/modules/post/rl';
-
-const { nameSpace } = rl;
+import { nameSpace } from '../../../src/modules/post/rl';
 
 describe('Testing post module', () => {
   it('should test post module', () => {
     const title = 'title';
     const body = 'body';
+    const error = null;
 
     const mockStore = configureMockStore([]);
     const store = mockStore({
       [nameSpace]: {
         title,
         body,
+        error,
       },
     });
 
@@ -32,8 +32,12 @@ describe('Testing post module', () => {
 
     expect(props.title).to.be.equal(title);
     expect(props.body).to.be.equal(body);
+    expect(props.error).to.be.equal(error);
     expect(props.titleAction).to.be.a('function');
     expect(props.bodyAction).to.be.a('function');
     expect(props.submitAction).to.be.a('function');
+    expect(props.loadAction).to.be.a('function');
+    expect(props.loadedAction).to.be.a('function');
+    expect(props.errorAction).to.be.a('function');
   });
 });

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import rl from './modules/post/rl';
+import rl, { nameSpace as postNameSpace } from './modules/post/rl';
 
-const { nameSpace: postNameSpace, reducer: postReducer } = rl;
+const { reducer: postReducer } = rl;
 
 export default combineReducers({ [postNameSpace]: postReducer });

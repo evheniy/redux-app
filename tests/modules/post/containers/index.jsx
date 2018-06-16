@@ -5,9 +5,9 @@ import { spy } from 'sinon';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
-import rl from '../../../../src/modules/post/rl';
+import rl, { nameSpace } from '../../../../src/modules/post/rl';
 
-const { nameSpace, Container: PostContainer } = rl;
+const { Container: PostContainer } = rl;
 
 describe('Testing post module containers', () => {
   it('should test container', () => {
@@ -16,12 +16,14 @@ describe('Testing post module containers', () => {
 
     const title = 'title';
     const body = 'body';
+    const error = null;
 
     const mockStore = configureMockStore([]);
     const store = mockStore({
       [nameSpace]: {
         title,
         body,
+        error,
       },
     });
 
@@ -33,8 +35,12 @@ describe('Testing post module containers', () => {
 
     expect(props.title).to.be.equal(title);
     expect(props.body).to.be.equal(body);
+    expect(props.error).to.be.equal(error);
     expect(props.titleAction).to.be.a('function');
     expect(props.bodyAction).to.be.a('function');
     expect(props.submitAction).to.be.a('function');
+    expect(props.loadAction).to.be.a('function');
+    expect(props.loadedAction).to.be.a('function');
+    expect(props.errorAction).to.be.a('function');
   });
 });

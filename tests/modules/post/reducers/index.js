@@ -7,6 +7,7 @@ describe('Testing post module reducer', () => {
   const defaultState = {
     title: '',
     body: '',
+    error: null,
   };
 
   it('should test default state', () => {
