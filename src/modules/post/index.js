@@ -1,7 +1,6 @@
 import PostComponent from './components';
-import rl from './rl';
-import lifecycleContainer from './containers/lifecycle';
 
-const { Container: PostContainer } = rl;
+import lifecycleContainer from './containers/lifecycle';
+import PostContainer from './containers';
 
 export default PostContainer(lifecycleContainer(PostComponent));

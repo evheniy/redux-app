@@ -20,15 +20,25 @@ const PostComponent = props => (
     <div>
       <input type="submit" value="Submit" />
     </div>
+    {props.error && (
+      <div>
+        {props.error.message}
+      </div>
+    )}
   </form>
 );
 
 PostComponent.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
+  error: PropTypes.objectOf(PropTypes.any),
   titleAction: PropTypes.func.isRequired,
   bodyAction: PropTypes.func.isRequired,
   submitAction: PropTypes.func.isRequired,
+};
+
+PostComponent.defaultProps = {
+  error: null,
 };
 
 export default PostComponent;
