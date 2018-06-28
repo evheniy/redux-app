@@ -28,7 +28,11 @@ describe('Testing post module', () => {
       },
     });
 
-    const wrapper = mount(<Provider store={store}><PostModule /></Provider>);
+    const wrapper = mount(
+      <Provider store={store}>
+        <PostModule />
+      </Provider>,
+    );
 
     expect(wrapper.find(PostComponent)).to.have.length(1);
 

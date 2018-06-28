@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 const PostComponent = props => (
   <form onSubmit={props.submitAction}>
-    <h1>Our form example</h1>
+    <h1>
+      Our form example
+    </h1>
     <div>
       <input
         type="text"

@@ -31,7 +31,11 @@ describe('Testing post module containers', () => {
       },
     });
 
-    const wrapper = mount(<Provider store={store}><Container /></Provider>);
+    const wrapper = mount(
+      <Provider store={store}>
+        <Container />
+      </Provider>,
+    );
 
     expect(wrapper.find(Component)).to.have.length(1);
 

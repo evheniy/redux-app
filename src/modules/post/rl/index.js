@@ -2,12 +2,12 @@ import RL from 'redux-lazy';
 
 const rl = new RL('post');
 
-rl.addAction('title', { title: '' }, { isFormElement: true, asParams: 'title' });
-rl.addAction('body', { body: '' }, { isFormElement: true, asParams: 'body' });
-rl.addAction('submit', {}, { isForm: true });
-rl.addAction('load');
-rl.addAction('loaded');
-rl.addAction('error', { error: null }, { asParams: 'error' });
+rl.addFormElementAction('title', '');
+rl.addFormElementAction('body', '');
+rl.addFormAction('submit');
+rl.addEventAction('load');
+rl.addEventAction('loaded');
+rl.addParamAction('error');
 
 const result = rl.flush();
 
