@@ -5,11 +5,13 @@ import logger from 'redux-logger';
 import reducers from './reducers';
 import rootEpic from './epics';
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
+const epicMiddleware = createEpicMiddleware();
 
 const store = createStore(
   reducers,
   applyMiddleware(logger, epicMiddleware),
 );
+
+epicMiddleware.run(rootEpic);
 
 export default store;

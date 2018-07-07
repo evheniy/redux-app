@@ -1,4 +1,5 @@
 import 'rxjs';
+import 'rxjs-compat';
 import { Observable } from 'rxjs/Observable';
 
 import axios from 'axios';
